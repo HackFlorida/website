@@ -1,0 +1,226 @@
+@font-face {
+    font-family: 'LastParadise';
+    src: url("last-paradise.ttf") format("truetype");
+    font-weight: normal;
+    font-style: normal
+}
+
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  font-family: 'LastParadise', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  background-color: #101010;
+  overflow: hidden;
+}
+
+#five-ws {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  font-size: 6rem;
+  color: #ffffff;
+  font-weight: 300;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+#five-ws-container {
+  height: 80%;
+  margin-left: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+#five-ws .section {
+}
+
+#five-ws .section:hover {
+  cursor: pointer;
+}
+
+#who:hover {
+  color: #d93992;
+}
+
+#what:hover {
+  color: #30abf1;
+}
+
+#when:hover {
+  color: #eb7748;
+}
+
+#where:hover {
+  color: #ae3caa;
+}
+
+#why:hover {
+  color: #ee213d;
+}
+
+#who-content {
+  height: 100%;
+  width: 65%;
+  position: absolute;
+  top: 0; right: -65%;
+  background-color: #ffffff;
+}
+
+#who-content.slide-in {
+  animation-name: slide-in;
+  animation-duration: 0.5s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes slide-in {
+  from {
+    right: -65%;
+  }
+  to {
+    right: 0;
+  }
+}
+
+.container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  background-color: #dcdcdc;
+  color: #000000;
+}
+
+.half {
+  position: absolute;
+  height: 50%;
+  width: 100%;
+  display: flex;
+  background-color: #ffffff;
+  color: #000000;
+}
+
+@keyframes up {
+  from {
+    top: 0;
+  }
+  to {
+    top: -55%;
+  }
+}
+
+@keyframes down {
+  from {
+    top: 50%;
+  }
+  to {
+    top: 102%;
+  }
+}
+
+.up {
+  animation-name: up;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.down {
+  animation-name: down;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.snap-white {
+  background-color: #ffffff;
+  color: #000000;
+  transition: background-color 0s;
+}
+
+.snap-black {
+  background-color: #000000;
+  color: #ffffff;
+  transition: background-color 0s;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.bottom {
+  justify-content: flex-end;
+  align-items: center;
+  top: 0;
+  /*z-index: 2;*/
+  /*padding-bottom: 1rem;*/
+}
+
+.top {
+  justify-content: flex-start;
+  align-items: center;
+  top: 50%;
+  /*z-index: 1;*/
+}
+
+.black {
+  background-color: #000000;
+  color: #ffffff;
+}
+
+.heading {
+  z-index: 5;
+  font-size: 7.4em;
+}
+
+.heading img {
+  margin: -6.5rem -13.5rem -6.5rem -13.5rem;
+  /*: -6.5rem -2rem -6.5rem -20rem;*/
+  /*top: 39%;
+  left: 49%;*/
+  max-width: 20rem;
+  /*z-index: -20;*/
+}
+
+.heading .light {
+  font-weight: 300;
+  color: #000000;
+}
+
+#info {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-family: 'Inconsolata';
+  margin-top: 0.5rem;
+}
+
+#info strong {
+  font-weight: 500;
+}
+
+#info div {
+  margin-right: 6rem;
+  margin-left: 2.5rem;
+}
+
+#menu {
+  margin-top: 4rem;
+}
+
+#menu:hover {
+  cursor: pointer;
+}
+
+.menu-bar {
+  width: 2.2rem;
+  border-bottom: 0.1rem solid #000000;
+  margin-bottom: 0.6rem;
+}

@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+  <link rel="stylesheet" href="style2.css">
+  <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
+  <script type="text/javascript">
+    //$(function() {
+      // setTimeout(function() {
+      //   $('.container').addClass('snap-black');
+      //   $('.container').find('.heading').text('Reorganized from the bottom up.');
+      // }, 1000);
+    //   var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
+    //   $('.container').bind(mousewheelevt, function(e){
+    //     // e.preventDefault();
+    //     var evt = window.event || e;//equalize event object
+    //     evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
+    //     var delta = evt.detail ? evt.detail*(-40) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
+    //
+    //     if(delta > 0) {
+    //       $('.container').removeClass('snap-black').addClass('snap-white');
+    //       $('.container').find('.heading').text('We\'re changing everything.');
+    //     }
+    //     else if (delta < 0){
+    //       //scroll down
+    //       $('.container').removeClass('snap-white').addClass('snap-black');
+    //       $('.container').find('.heading').text('Reorganized from the bottom up.');
+    //     }
+    //   });
+    // });
+    $(function() {
+      var colorIndex = 0;
+      var colors = [ '#d93992', '#30abf1', '#eb7748', '#ae3caa', '#ee213d', '#000000' ];
+
+      setInterval(function() {
+        if (colorIndex >= colors.length) {
+          colorIndex = 0;
+        }
+
+        console.log(colors[colorIndex]);
+        $('#fl').css('color', colors[colorIndex]);
+        colorIndex++;
+      }, 1500);
+
+      // Menu effect
+      $('#menu').click(function(e) {
+        $('.bottom').addClass('up');
+        $('.top').addClass('down');
+      });
+
+      // Sections
+      $('#who').click(function(e) {
+        $('#who-content').addClass('slide-in');
+      });
+
+    });
+  </script>
+</head>
+<body>
+  <div id="five-ws">
+    <div id="five-ws-container">
+      <div id="who" class="section">Who</div>
+      <div id="what" class="section">What</div>
+      <div id="when" class="section">When</div>
+      <div id="where" class="section">Where</div>
+      <div id="why" class="section">Why</div>
+    </div>
+  </div>
+
+  <div id="who-content">
+
+  </div>
+
+  <div class="half column bottom">
+    <div class="heading">
+      Hack<span id="fl" class="light">Florida</span>
+      <img src="logo.gif">
+    </div>
+    <div id="info">
+      <div id="info-where"><strong>Dirac Science Library</strong></div>
+      <div id="info-when">4-5 Feb 2017</div>
+    </div>
+  </div>
+  <div class="half column top">
+    <div id="menu">
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+      <div class="menu-bar"></div>
+    </div>
+  </div>
+</body>
+</html>
