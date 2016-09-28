@@ -1,3 +1,5 @@
+@import 'https://fonts.googleapis.com/css?family=Inconsolata';
+
 @font-face {
     font-family: 'LastParadise';
     src: url("last-paradise.ttf") format("truetype");
@@ -67,21 +69,21 @@ html, body {
 
 #who-content {
   height: 100%;
-  width: 65%;
+  width: 70%;
   position: absolute;
-  top: 0; right: -65%;
+  top: 0; right: -70%;
   background-color: #ffffff;
 }
 
 #who-content.slide-in {
   animation-name: slide-in;
-  animation-duration: 0.5s;
+  animation-duration: 0.75s;
   animation-fill-mode: forwards;
 }
 
 @keyframes slide-in {
   from {
-    right: -65%;
+    right: -70%;
   }
   to {
     right: 0;
@@ -157,15 +159,15 @@ html, body {
   justify-content: flex-end;
   align-items: center;
   top: 0;
-  /*z-index: 2;*/
-  /*padding-bottom: 1rem;*/
+  z-index: 2;
+  padding-bottom: 1rem;
 }
 
 .top {
   justify-content: flex-start;
   align-items: center;
   top: 50%;
-  /*z-index: 1;*/
+  z-index: 1;
 }
 
 .black {
@@ -178,13 +180,12 @@ html, body {
   font-size: 7.4em;
 }
 
-.heading img {
-  margin: -6.5rem -13.5rem -6.5rem -13.5rem;
-  /*: -6.5rem -2rem -6.5rem -20rem;*/
+#logo img {
+  margin: -20rem -20rem -3.5rem 8rem;
   /*top: 39%;
   left: 49%;*/
   max-width: 20rem;
-  /*z-index: -20;*/
+  z-index: 100;
 }
 
 .heading .light {
@@ -223,4 +224,52 @@ html, body {
   width: 2.2rem;
   border-bottom: 0.1rem solid #000000;
   margin-bottom: 0.6rem;
+}
+
+/*
+* Media Queries
+*/
+
+@media screen and (max-width: 450px) {
+  .heading {
+    font-size: 5.4rem;
+  }
+
+  #info {
+    flex-direction: column;
+  }
+
+  #info div {
+    margin: 0;
+  }
+
+  #logo img {
+    margin: -20rem -15rem -3rem -2rem;
+    max-width: 15rem;
+    z-index: 100;
+  }
+
+  #who-content {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0; right: -100%;
+    background-color: #ffffff;
+  }
+
+  #who-content.slide-in {
+    animation-name: slide-in;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes slide-in {
+    from {
+      right: -100%;
+    }
+    to {
+      right: 0;
+    }
+  }
+
 }
