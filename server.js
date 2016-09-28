@@ -5,7 +5,9 @@ const Inert = require('inert');
 const routes = require('./routes');
 
 const server = new Hapi.Server();
-const serverConfig = { port: process.env.PORT || 3000 };
+const serverConfig = {
+  port: process.env.PORT || 3000
+};
 
 server.connection(serverConfig);
 server.register([Inert], onModulesRegistered);
