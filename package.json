@@ -4,7 +4,11 @@
   "description": "HackFlorida Website",
   "main": "server.js",
   "scripts": {
+    "start": "node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "6.4.0"
   },
   "author": "Trevor Helms",
   "license": "ISC",
