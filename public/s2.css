@@ -1,0 +1,22 @@
+@font-face {
+  font-family: 'Engschrift';
+  src: url(Eng.ttf) format('truetype');
+  font-weight: normal;
+}
+
+.info-main {
+  z-index: 0;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #101010;
+  color: #ffffff;
+  font-family: 'Engschrift';
+}
+
+.info-main h1 {
+  font-size: 7.2rem;
+  text-transform: uppercase;
+}

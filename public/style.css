@@ -1,6 +1,11 @@
 @import 'https://fonts.googleapis.com/css?family=Inconsolata';
 
 @font-face {
+  font-family: 'Lettera';
+  src: url('lettera-light.woff') format('woff');
+  font-weight: 300;
+}
+@font-face {
     font-family: 'LastParadise';
     src: url("last-paradise.ttf") format("truetype");
     font-weight: normal;
@@ -94,7 +99,7 @@ html, body {
   height: 100%;
   width: 100%;
   display: flex;
-  background-color: #dcdcdc;
+  background-color: #ffffff;
   color: #000000;
 }
 
@@ -177,14 +182,14 @@ html, body {
 
 .heading {
   z-index: 5;
-  font-size: 7.4em;
+  font-size: 8rem;
 }
 
 #logo img {
-  margin: -20rem -20rem -3.5rem 8rem;
+  margin: -20rem -20rem -5rem 11rem;
   /*top: 39%;
   left: 49%;*/
-  max-width: 20rem;
+  max-width: 22rem;
   z-index: 100;
 }
 

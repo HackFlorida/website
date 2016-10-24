@@ -4,7 +4,7 @@
   "description": "HackFlorida Website",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "lsc -k server.ls",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -15,6 +15,7 @@
   "dependencies": {
     "hapi": "^15.1.1",
     "inert": "^4.0.2",
+    "livescript": "^1.5.0",
     "ramda": "^0.22.1"
   }
 }
