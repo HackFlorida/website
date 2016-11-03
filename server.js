@@ -1,29 +1,33 @@
-global <<< require 'prelude-ls'
+const Hapi  = require('hapi')
+const Inert = require('inert')
+const routes = require('./routes')
 
-require! {
-  hapi: Hapi
-  inert: Inert
-  './routes'
+// Throws an error if err is supplied
+const toss = (e) => {
+  if (e) throw e
 }
 
-# Throws an error if err is supplied
-toss = (e) ->
-  if e then throw e
+const init = (config, then_) => {
+  const server = new Hapi.Server()
+  server.connection(config)
+  return server
+}
 
-init = (config, then_) ->
-  const server = new Hapi.Server!
-  server.connection config
-  then_ server
+const main = () => {
+  const serverConfig = {
+    port: process.env.PORT || 3000
+  }
 
-main = (routes) ->
-  server-config = port: process.env.PORT or 3000
-  do
-    server <- init server-config
-    e <- server.register [Inert]
-    toss e
-    server.route routes
-    e <- server.start
-    toss e
-    console.log "Server running at #{server.info.uri}"
+  const server = init(serverConfig)
+  server.register([Inert], (err) => {
+    toss(err)
+    server.route(routes)
+  })
 
-main routes.routes
+  server.start((err) => {
+    toss(err)
+    console.log(`Server running at ${server.info.uri}`)
+  })
+}
+
+main()
