@@ -1,4 +1,4 @@
-export = [
+export routes = [
   * method: \GET
     path: '/{param*}'
     handler:
