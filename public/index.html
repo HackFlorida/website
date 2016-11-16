@@ -1,64 +1,20 @@
 <!doctype html>
 <html>
 <head>
+  <title>HackFlorida 2017</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="utf-8">
+  <meta name="description" content="HackFlorida 2017">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="favicon.png" />
   <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
-  <script type="text/javascript">
-    // $(function() {
-    //   // setTimeout(function() {
-    //   //   $('.container').addClass('snap-black');
-    //   //   $('.container').find('.heading').text('Reorganized from the bottom up.');
-    //   // }, 1000);
-    //   var mousewheelevt = (/Firefox/i.test(navigator.userAgent)) ? "DOMMouseScroll" : "mousewheel" //FF doesn't recognize mousewheel as of FF3.x
-    //   $('.container').bind(mousewheelevt, function(e){
-    //     // e.preventDefault();
-    //     var evt = window.event || e;//equalize event object
-    //     evt = evt.originalEvent ? evt.originalEvent : evt; //convert to originalEvent if possible
-    //     var delta = evt.detail ? evt.detail*(-40) : evt.wheelDelta //check for detail first, because it is used by Opera and FF
-    //
-    //     if(delta > 0) {
-    //       $('.container').removeClass('snap-black').addClass('snap-white');
-    //       $('.container').find('.heading').text('We\'re changing everything.');
-    //     }
-    //     else if (delta < 0){
-    //       //scroll down
-    //       $('.container').removeClass('snap-white').addClass('snap-black');
-    //       $('.container').find('.heading').text('Reorganized from the bottom up.');
-    //     }
-    //   });
-    // });
-    $(function() {
-      var colorIndex = 0;
-      var colors = [ '#d93992', '#30abf1', '#eb7748', '#ae3caa', '#ee213d', '#000000' ];
-
-      // Color switcher
-      // setInterval(function() {
-      //   if (colorIndex >= colors.length) {
-      //     colorIndex = 0;
-      //   }
-      //
-      //   console.log(colors[colorIndex]);
-      //   $('#fl').css('color', colors[colorIndex]);
-      //   colorIndex++;
-      // }, 1500);
-
-      // Menu effect
-      $('#menu').click(function(e) {
-        $('.bottom').addClass('up');
-        $('.top').addClass('down');
-      });
-
-      // Sections
-      $('#who').click(function(e) {
-        $('#who-content').addClass('slide-in');
-      });
-
-    });
-  </script>
+  <script src="jquery.hotkeys.js"></script>
+  <script src="menu.js"></script>
 </head>
 <body>
+  <div id="default"></div>
   <div id="five-ws">
+    <div id="close">X</div>
     <div id="five-ws-container">
       <div id="who" class="section">Who</div>
       <div id="what" class="section">What</div>
@@ -69,7 +25,49 @@
   </div>
 
   <div id="who-content">
+    <h1 align="center">Andrew</h1><br />
+    <img src="img/andrew.png" class="center" /><br />
+    <h1 align="center">Jordan</h1><br />
+    <img src="img/jordan.png" class="center" /><br />
+    <h1 align="center">Josh</h1><br />
+    <img src="img/josh.png" class="center" /><br />
+    <h1 align="center">Marielle</h1><br />
+    <img src="img/marielle.png" class="center" /><br />
+    <h1 align="center">Nick</h1><br />
+    <img src="img/nick.png" class="center" /><br />
+    <h1 align="center">Spenser</h1><br />
+    <img src="img/spenser.png" class="center" /><br />
+    <h1 align="center">Trevor</h1><br />
+    <img src="img/trevor.png" class="center" />
+  </div>
 
+  <div id="what-content">
+    <p>HackFlorida is a 26-hour hackathon being held in February 2017 at Florida State University. Our organizing team is made up of students passionate about technology who aim for HackFlorida to be a nationally-recognized hackathon that attracts students who are just as passionate about technology as we are. We've identified many downfalls of other hackathons we've been to -- from logistical problems to issues with the underlying culture that has emerged. We believe that our hackathon will help promote technological innovation above all else. At our core, we're computer nerds who want to get other computer nerds together for a weekend to see what kind of technology they can come up with in just over one full day.</p>
+  </div>
+
+  <div id="when-content">
+    <p>Saturday, February 4th to Sunday, February 5th</p>
+  </div>
+
+  <div id="where-content">
+    <img src="//placehold.it/800x500" class="center" style="margin-top:20px;" /><br />
+    <p>Dirac Science Library<br />
+110 N Woodward Ave, Tallahassee, FL 32301</p>
+  </div>
+
+  <div id="why-content">
+    <p>We wanted to create a hackathon that rewards hacker talent and abilities. Our goal for HackFlorida is to create a one-of-a-kind, flagship hackathon dedicated to building meaningful projects. We want our hackers to create more than something simple, but a meaningful creation that reflects everything they are capable of.</p>
+    <h1 align="center">FAQ</h1>
+    <p><strong>How much does it cost?</strong></p>
+    <p>Nothing, this hackathon is completely free to you the participant.</p>
+    <p><strong>How long will the hackathon be?</strong></p>
+    <p>26 hours</p>
+    <p><strong>Will I have to pay for food?</strong></p>
+    <p>No, meals and snacks will be provided during the duration of the hackathon.</p>
+    <p><strong>How do I get there?</strong></p>
+    <p>We will be offering two buses, one stopping at most major Florida Universities and one coming from Georgia Tech.</p>
+    <p><strong>Can I participate if I am under 18?</strong></p>
+    <p>Yes, but you must get a minor release form signed before the event.</p>
   </div>
 
   <div class="half column bottom">
@@ -80,11 +78,12 @@
       <img src="logo.gif">
     </div>
     <div id="info">
-      <div id="info-where">Dirac Science Library</div>
+      <div id="info-where">Florida State University</div>
       <div id="info-when">4-5 Feb 2017</div>
     </div>
   </div>
   <div class="half column top">
+    <a href="#" class="btn">Register</a>
     <div id="menu">
       <div class="menu-bar"></div>
       <div class="menu-bar"></div>

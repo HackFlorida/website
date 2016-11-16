@@ -72,18 +72,25 @@ html, body {
   color: #ee213d;
 }
 
-#who-content {
+#who-content, #what-content, #when-content, #where-content, #why-content {
   height: 100%;
   width: 70%;
   position: absolute;
   top: 0; right: -70%;
   background-color: #ffffff;
+  overflow-y: scroll;
 }
 
-#who-content.slide-in {
+#who-content.slide-in, #what-content.slide-in, #when-content.slide-in, #where-content.slide-in, #why-content.slide-in {
   animation-name: slide-in;
   animation-duration: 0.75s;
   animation-fill-mode: forwards;
+}
+
+#who-content.slide-out, #what-content.slide-out, #when-content.slide-out, #where-content.slide-out, #why-content.slide-out {
+  animation-name: slide-out;
+  animation-duration: 0.75s;
+  animation-fill-mode: backwards;
 }
 
 @keyframes slide-in {
@@ -92,6 +99,15 @@ html, body {
   }
   to {
     right: 0;
+  }
+}
+
+@keyframes slide-out {
+  from {
+    right: 0;
+  }
+  to {
+    right: -70%;
   }
 }
 
@@ -121,12 +137,30 @@ html, body {
   }
 }
 
+@keyframes up-return {
+  from {
+    top: -55%;
+  }
+  to {
+    top: 0;
+  }
+}
+
 @keyframes down {
   from {
     top: 50%;
   }
   to {
     top: 102%;
+  }
+}
+
+@keyframes down-return {
+  from {
+    top: 102%;
+  }
+  to {
+    top: 50%;
   }
 }
 
@@ -137,8 +171,22 @@ html, body {
   animation-fill-mode: forwards;
 }
 
+.up-return {
+  animation-name: up-return;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
 .down {
   animation-name: down;
+  animation-duration: 0.75s;
+  animation-timing-function: ease-in-out;
+  animation-fill-mode: forwards;
+}
+
+.down-return {
+  animation-name: down-return;
   animation-duration: 0.75s;
   animation-timing-function: ease-in-out;
   animation-fill-mode: forwards;
@@ -222,9 +270,125 @@ html, body {
 }
 
 .menu-bar {
-  width: 2.2rem;
+  width: 2.5rem;
   border-bottom: 0.1rem solid #000000;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.9rem;
+}
+
+#close {
+  font-size:2.2rem;
+  margin-top: -90px;
+  padding-left: 10px;
+  margin-bottom: 30px;
+}
+
+#close:hover {
+  cursor: pointer;
+}
+
+.color0 {
+  color: #d93992;
+}
+.color1 {
+  color: #30abf1;
+}
+.color2 {
+  color: #eb7748;
+}
+.color3 {
+  color: #ae3caa;
+}
+.color4 {
+  color: #ee213d;
+}
+
+#what-content {
+  background-image: url('img/logo_blue.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#what-content p {
+  font-family: 'Lettera';
+  font-size: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 200%;
+  font-weight: 900;
+}
+
+#when-content {
+  background-image: url('img/logo_orange.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#when-content p {
+  font-family: 'Lettera';
+  font-size: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 200%;
+  font-weight: 900;
+  text-align: center;
+  margin-top: 25%;
+}
+
+#where-content {
+  background-image: url('img/logo_purple.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#where-content p {
+  font-family: 'Lettera';
+  font-size: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 200%;
+  font-weight: 900;
+  text-align: center;
+}
+
+#why-content {
+  background-image: url('img/logo_red.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+#why-content p {
+  font-family: 'Lettera';
+  font-size: 2.5em;
+  padding-left: 10px;
+  padding-right: 10px;
+  line-height: 200%;
+  font-weight: 400;
+  text-align: center;
+}
+
+img.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  font-size: 5.0em;
+}
+
+.btn {
+  margin-top:20px;
+  margin-bottom:-10px;
+  color: #000;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  border: solid #d93992 2px;
+  text-decoration: none;
+  background-color: #fff;
+  font-family: 'Lettera';
+}
+
+.btn:hover {
+  background: #d93992;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
 }
 
 /*
@@ -250,7 +414,7 @@ html, body {
     z-index: 100;
   }
 
-  #who-content {
+  #who-content, #what-content, #when-content, #where-content, #why-content {
     height: 100%;
     width: 100%;
     position: absolute;
@@ -258,7 +422,7 @@ html, body {
     background-color: #ffffff;
   }
 
-  #who-content.slide-in {
+  #who-content.slide-in, #what-content.slide-in, #when-content.slide-in, #where-content.slide-in, #why-content.slide-in {
     animation-name: slide-in;
     animation-duration: 0.75s;
     animation-fill-mode: forwards;
@@ -270,6 +434,21 @@ html, body {
     }
     to {
       right: 0;
+    }
+  }
+
+  #who-content.slide-out, #what-content.slide-out, #when-content.slide-out, #where-content.slide-out, #why-content.slide-out {
+    animation-name: slide-out;
+    animation-duration: 0.75s;
+    animation-fill-mode: backwards;
+  }
+
+  @keyframes slide-out {
+    from {
+      right: 0;
+    }
+    to {
+      right: -70%;
     }
   }
 
