@@ -26,6 +26,7 @@ $(function() {
   var colors = [ '#d93992', '#30abf1', '#eb7748', '#ae3caa', '#ee213d' ];
   var prevTab = $('#default');
   var firstClick = true;
+  var termAnim1 = false;
 
   function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
@@ -93,6 +94,10 @@ $(function() {
     }
   });
   $('#what').click(function(e) {
+    //$('#p1').hide();
+    if(termAnim1 == false) {
+      $('#p1').hide();
+    }
     if(firstClick == true) {
       $('#what-content').removeClass('slide-out').addClass('slide-in');
       prevTab = $('#what-content');
@@ -103,6 +108,10 @@ $(function() {
         $('#what-content').removeClass('slide-out').addClass('slide-in');
       }, 750);
       prevTab = $('#what-content');
+    }
+    if(termAnim1 == false) {
+      $('#whatterminal').terminal().resume();
+      termAnim1 = true;
     }
   });
   $('#when').click(function(e) {

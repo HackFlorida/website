@@ -5,10 +5,82 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta charset="utf-8">
   <meta name="description" content="HackFlorida 2017">
+  <link rel="stylesheet" href="console/jquery.terminal-0.11.16.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/png" href="favicon.png" />
   <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
   <script src="jquery.hotkeys.js"></script>
+  <script src="console/jquery.terminal-0.11.16.min.js"></script>
+  <script src="console/unix_formatting.js"></script>
+  <script type="text/javascript">
+    $(function() {
+    $('#p1').hide();
+    var anim = false;
+    function typed(finish_typing) {
+        return function(term, message, delay, finish) {
+            anim = true;
+            var prompt = term.get_prompt();
+            var c = 0;
+            if (message.length > 0) {
+                term.set_prompt('');
+                var interval = setInterval(function() {
+                    term.insert(message[c++]);
+                    if (c == message.length) {
+                        clearInterval(interval);
+                        setTimeout(function() {
+                            finish_typing(term, message, prompt);
+                            anim = false
+                            finish && finish();
+                        }, delay);
+                    }
+                }, delay);
+            }
+        };
+    }
+    var typed_message = typed(function(term, message, prompt) {
+        term.set_command('');
+        term.echo(message)
+        term.set_prompt(prompt);
+    });
+    var termID;
+    var finished = false;
+    $('#whatterminal').terminal(function(cmd, term) {}, {
+        name: 'whatterminal',
+        greetings: null,
+        width: $('#what-content').width() - 35,
+        height: 60,
+        onInit: function(term) {
+          termID = term;
+        },
+        onResume: function() {
+          /*
+          debug1: Authentication succeeded (password).
+          Authenticated to 154.16.245.154 ([154.16.245.154]:22).
+          */
+            if(finished == false) {
+              typed_message(termID, "> ssh salsa@prod.local", 200, function() {
+                termID.echo("> Authentication succeeded. Authenticated to prod.local ([10.1.12.95]:22). Connected.", {
+                  finalize: function(element) {
+                    typed_message(termID, "> cat what.txt", 200, function() {
+                      $("#p1").show();
+                      finished = true;
+                    });
+                  }
+                });
+              });
+            }
+        },
+        keydown: function(e, term) {
+            return false;
+        },
+        keypress: function(e, term) {
+          return false;
+        },
+        convertLinks: false
+    });
+    $('#whatterminal').terminal().pause(true);
+  });
+  </script>
   <script src="menu.js"></script>
 </head>
 <body>
@@ -42,7 +114,8 @@
   </div>
 
   <div id="what-content">
-    <p>HackFlorida is a 26-hour hackathon being held in February 2017 at Florida State University. Our organizing team is made up of students passionate about technology who aim for HackFlorida to be a nationally-recognized hackathon that attracts students who are just as passionate about technology as we are. We've identified many downfalls of other hackathons we've been to -- from logistical problems to issues with the underlying culture that has emerged. We believe that our hackathon will help promote technological innovation above all else. At our core, we're computer nerds who want to get other computer nerds together for a weekend to see what kind of technology they can come up with in just over one full day.</p>
+    <div id="whatterminal"></div>
+    <p id="p1">HackFlorida is a 26-hour hackathon being held in February 2017 at Florida State University. Our organizing team is made up of students passionate about technology who aim for HackFlorida to be a nationally-recognized hackathon that attracts students who are just as passionate about technology as we are. We've identified many downfalls of other hackathons we've been to -- from logistical problems to issues with the underlying culture that has emerged. We believe that our hackathon will help promote technological innovation above all else. At our core, we're computer nerds who want to get other computer nerds together for a weekend to see what kind of technology they can come up with in just over one full day.</p>
   </div>
 
   <div id="when-content">
