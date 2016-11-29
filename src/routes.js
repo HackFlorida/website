@@ -76,35 +76,35 @@ const routes = [
   },
   {
     method: 'GET',
-    path: '/countdown',
+    path: '/api/countdown',
     handler: (request, reply) => {
       reply(countdown)
     }
   },
   {
     method: 'GET',
-    path: '/schedule',
+    path: '/api/schedule',
     handler: (request, reply) => {
       reply(schedule)
     }
   },
   {
     method: 'GET',
-    path: '/sponsors',
+    path: '/api/sponsors',
     handler: (request, reply) => {
       reply(sponsors)
     }
   },
   {
     method: 'GET',
-    path: '/announcements',
+    path: '/api/announcements',
     handler: (request,reply) => {
       reply(announcements)
     }
   },
   {
     method: 'GET',
-    path: '/maps',
+    path: '/api/maps',
     handler: (request,reply) => {
       reply(maps)
     }
