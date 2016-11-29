@@ -53,10 +53,6 @@
           termID = term;
         },
         onResume: function() {
-          /*
-          debug1: Authentication succeeded (password).
-          Authenticated to 154.16.245.154 ([154.16.245.154]:22).
-          */
             if(finished == false) {
               typed_message(termID, "> ssh salsa@prod.local", 200, function() {
                 termID.echo("> Authentication succeeded. Authenticated to prod.local ([10.1.12.95]:22). Connected.", {
