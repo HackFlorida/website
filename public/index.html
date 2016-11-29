@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/styles/style.css">
   <script   src="https://code.jquery.com/jquery-3.1.0.min.js"   integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s="   crossorigin="anonymous"></script>
   <script type="text/javascript">
     // $(function() {
@@ -50,8 +50,8 @@
       });
 
       // Sections
-      $('#who').click(function(e) {
-        $('#who-content').addClass('slide-in');
+      $('.section').click(function(e) {
+        $('#' + this.id + '-content').addClass('slide-in');
       });
 
     });
@@ -68,8 +68,20 @@
     </div>
   </div>
 
-  <div id="who-content">
-
+  <div id="who-content" class="five-ws-content">
+    <h1>Who We Are</h1>
+  </div>
+  <div id="what-content" class="five-ws-content">
+    <h1>What Is HackFlorida?</h1>
+  </div>
+  <div id="when-content" class="five-ws-content">
+    <h1>When Is It?</h1>
+  </div>
+  <div id="where-content" class="five-ws-content">
+    <h1>Where Will It Be?</h1>
+  </div>
+  <div id="why-content" class="five-ws-content">
+    <h1>Why HackFlorida?</h1>
   </div>
 
   <div class="half column bottom">
@@ -77,7 +89,7 @@
       HackFlorida
     </div>
     <div id="logo">
-      <img src="logo.gif">
+      <img src="/images/logo.gif">
     </div>
     <div id="info">
       <div id="info-where">Dirac Science Library</div>

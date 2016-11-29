@@ -2,12 +2,12 @@
 
 @font-face {
   font-family: 'Lettera';
-  src: url('lettera-light.woff') format('woff');
+  src: url('/fonts/lettera-light.woff') format('woff');
   font-weight: 300;
 }
 @font-face {
     font-family: 'LastParadise';
-    src: url("last-paradise.ttf") format("truetype");
+    src: url("/fonts/last-paradise.ttf") format("truetype");
     font-weight: normal;
     font-style: normal
 }
@@ -72,15 +72,24 @@ html, body {
   color: #ee213d;
 }
 
-#who-content {
+.five-ws-content {
   height: 100%;
-  width: 70%;
+  width: 100%;
   position: absolute;
-  top: 0; right: -70%;
+  top: 0; right: -100%;
   background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-#who-content.slide-in {
+.five-ws-content h1 {
+  font-family: "LastParadise";
+  font-size: 8rem;
+}
+
+.five-ws-content.slide-in {
   animation-name: slide-in;
   animation-duration: 0.75s;
   animation-fill-mode: forwards;
@@ -88,7 +97,7 @@ html, body {
 
 @keyframes slide-in {
   from {
-    right: -70%;
+    right: -100%;
   }
   to {
     right: 0;
