@@ -4,7 +4,7 @@
   "description": "HackFlorida Website",
   "main": "server.js",
   "scripts": {
-    "start": "node --harmony server.js",
+    "start": "node --harmony index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "engines": {
@@ -13,6 +13,7 @@
   "author": "Trevor Helms",
   "license": "ISC",
   "dependencies": {
+    "app-module-path": "^2.1.0",
     "hapi": "^15.1.1",
     "inert": "^4.0.2",
     "livescript": "^1.5.0",
