@@ -1,11 +1,15 @@
 const Hapi  = require('hapi')
 const Inert = require('inert')
-const routes = require('./routes')
+const routes = require('src/routes')
 
 // Throws an error if err is supplied
 const toss = (e) => {
   if (e) throw e
 }
+
+const func = () => new Promise((resolve, reject) => {
+  reject('Fuck')
+})
 
 const init = (config, then_) => {
   const server = new Hapi.Server()
@@ -13,10 +17,12 @@ const init = (config, then_) => {
   return server
 }
 
-const main = () => {
+const run = () => {
   const serverConfig = {
     port: process.env.PORT || 3000
   }
+
+  func()
 
   const server = init(serverConfig)
   server.register([Inert], (err) => {
@@ -30,4 +36,8 @@ const main = () => {
   })
 }
 
-main()
+process.on('unhandledRejection', (err) => {
+  console.log(err)
+})
+
+module.exports = { run }
