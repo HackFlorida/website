@@ -27,12 +27,12 @@ const schedule = [
 const announcements = [
   {
     title: "SuchAnnounce",
-    content: "Muchcontents"
+    content: "Muchcontents",
     date: "2016-10-11 12:12:12"
   },
   {
     title: "SuchAnnounce2",
-    content: "Muchcontents2"
+    content: "Muchcontents2",
     date: "2016-10-11 15:12:12"
   }
 ];
@@ -40,12 +40,12 @@ const announcements = [
 const maps = [
   {
     label: "thebestmap",
-    mapUrl: "http://www.suchurl.com"
+    mapUrl: "http://www.suchurl.com",
     int: "1"
   },
   {
     label: "thewortmap",
-    mapUrl: "http://www.suchurl2.com"
+    mapUrl: "http://www.suchurl2.com",
     int: "2"
   }
 ]
